@@ -157,3 +157,29 @@ h2 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
         grid-template-columns: 1fr; /* Stacks the 4 models vertically on small phones */
     }
 }
+
+.benchmark-section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.benchmark-section p {
+    max-width: 700px;
+    margin: 0 auto 24px auto;
+    color: #555;
+}
+
+.benchmark-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.benchmark-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background: white;
+}
