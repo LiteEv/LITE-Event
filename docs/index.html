@@ -34,41 +34,74 @@
 
     <!-- SECTION 1 -->
     <section class="video-section">
-        <h2>Section 1: Baseline vs Proposed Method</h2>
+        <h2>VQA based on spatial properties</h2>
         <p>Hover over the section to play. Hover over the left video to switch.</p>
         
         <div class="video-grid-2">
             <!-- Left Column: Hover Switcher (Video 1 & Video 2) -->
             <div class="video-wrapper hover-switch-container">
-                <video class="base-vid" loop muted playsinline src="video1.mp4"></video>
-                <video class="hover-vid" loop muted playsinline src="video2.mp4"></video>
-                <p class="caption">Method 1 (Hover for Method 2)</p>
+                <video class="base-vid" loop muted playsinline src="spatial_low_light.mp4"></video>
+                <video class="hover-vid" loop muted playsinline src="spatial_normal_light.mp4"></video>
             </div>
 
             <!-- Right Column: Standard Video (Video 3) -->
             <div class="video-wrapper">
-                <video class="standard-vid" loop muted playsinline src="video3.mp4"></video>
-                <p class="caption">Ground Truth / Reference</p>
+                <video class="standard-vid" loop muted playsinline src="spatial_event_polarity.mp4"></video>
             </div>
         </div>
     </section>
 
     <!-- SECTION 2 -->
     <section class="video-section">
-        <h2>Section 2: Another Comparison</h2>
+        <h2>VQA based on visibility properties</h2>
         
         <div class="video-grid-2">
             <!-- Left Column: Hover Switcher (Video 4 & Video 5) -->
             <div class="video-wrapper hover-switch-container">
-                <video class="base-vid" loop muted playsinline src="video4.mp4"></video>
-                <video class="hover-vid" loop muted playsinline src="video5.mp4"></video>
-                <p class="caption">Method 1 (Hover for Method 2)</p>
+                <video class="base-vid" loop muted playsinline src="vis_low_light.mp4"></video>
+                <video class="hover-vid" loop muted playsinline src="vis_normal_light.mp4"></video>
             </div>
 
             <!-- Right Column: Standard Video (Video 6) -->
             <div class="video-wrapper">
-                <video class="standard-vid" loop muted playsinline src="video6.mp4"></video>
-                <p class="caption">Ground Truth / Reference</p>
+                <video class="standard-vid" loop muted playsinline src="vis_event_polarity.mp4"></video>
+            </div>
+        </div>
+    </section>
+
+        <!-- SECTION 3 -->
+    <section class="video-section">
+        <h2>VQA based on counting</h2>
+        
+        <div class="video-grid-2">
+            <!-- Left Column: Hover Switcher (Video 4 & Video 5) -->
+            <div class="video-wrapper hover-switch-container">
+                <video class="base-vid" loop muted playsinline src="count_low_light.mp4"></video>
+                <video class="hover-vid" loop muted playsinline src="count_normal_light.mp4"></video>
+            </div>
+
+            <!-- Right Column: Standard Video (Video 6) -->
+            <div class="video-wrapper">
+                <video class="standard-vid" loop muted playsinline src="count_event_polarity.mp4"></video>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- SECTION 4 -->
+    <section class="video-section">
+        <h2>VQA for OCR</h2>
+        
+        <div class="video-grid-2">
+            <!-- Left Column: Hover Switcher (Video 4 & Video 5) -->
+            <div class="video-wrapper hover-switch-container">
+                <video class="base-vid" loop muted playsinline src="ocr_low_light.mp4"></video>
+                <video class="hover-vid" loop muted playsinline src="ocr_normal_light.mp4"></video>
+            </div>
+
+            <!-- Right Column: Standard Video (Video 6) -->
+            <div class="video-wrapper">
+                <video class="standard-vid" loop muted playsinline src="ocr_event_polarity.mp4"></video>
             </div>
         </div>
     </section>
