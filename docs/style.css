@@ -84,3 +84,76 @@ h2 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
 @media (max-width: 768px) {
     .video-grid-2 { flex-direction: column; }
 }
+
+/* Image Styling for Method and Benchmark */
+.responsive-img {
+    width: 100%;
+    max-width: 900px; /* Keeps images from getting too massive on big screens */
+    display: block;
+    margin: 20px auto; /* Centers the image */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* QA Container Styling */
+.qa-container {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f1f5f9; /* Soft grayish-blue background */
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+.qa-text {
+    margin: 0 0 8px 0;
+    font-size: 0.95em;
+}
+
+.gt {
+    color: #047857; /* A subtle green to indicate Ground Truth */
+}
+
+/* Model Results Grid (2x2 Layout) */
+.model-results {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for the 4 models */
+    gap: 12px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #cbd5e1;
+}
+
+.model-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9em;
+}
+
+.model-logo {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px; /* Slight rounding for logos */
+    object-fit: contain;
+}
+
+.model-name {
+    font-weight: bold;
+    color: #334155;
+}
+
+/* Optional: Highlight your model's correct answer */
+.highlight-model {
+    background-color: #ecfdf5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    border: 1px solid #10b981;
+}
+
+/* Mobile Responsiveness for QA Grid */
+@media (max-width: 600px) {
+    .model-results {
+        grid-template-columns: 1fr; /* Stacks the 4 models vertically on small phones */
+    }
+}

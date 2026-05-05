@@ -32,79 +32,193 @@
         <p>Video multimodal large language models (video MLLMs) rely on RGB appearance cues and degrade sharply in low light, where texture, color, and object boundaries are lost. Event cameras offer a complementary signal, asynchronous brightness changes that preserve motion and temporal structure under extreme illumination, but integrating event streams into language-based reasoning is bottlenecked by scarce paired event-language supervision, especially under low light. We propose LITE-Event, a sample-efficient framework that fuses event and RGB streams for low-light video reasoning while keeping both visual encoders and the LLM frozen. A lightweight visual-language interface combines modality-specific projectors with gated fusion and is adapted at inference by a hypernetwork that generates LoRA-style residual updates from a small support set, allowing the model to specialize without retraining. To support training and evaluation, we release three resources: NExT-QA-Dark, a large-scale synthetic low-light RGB-event dataset for pretraining; EventLang-LowLight, a curated event-language dataset for adaptation; and RealDark-Bench, a real-world low-light RGB-event reasoning benchmark. Trained predominantly on synthetic data, LITE-Event reaches 87.1% on RealDark-Bench, outperforming the strongest enhancement-then-reason baseline by 8.0 points and surpassing both RGB-only and event-only video MLLMs.</p>
     </section>
 
+    <!-- METHOD SECTION -->
+    <section class="method-section">
+        <h2>Method</h2>
+        <p>-</p>
+        <!-- Replace 'method_diagram.png' with your actual image file -->
+        <img src="method_diagram.png" alt="Method Architecture Diagram" class="responsive-img">
+    </section>
+
     <!-- SECTION 1 -->
-    <section class="video-section">
-        <h2>VQA based on spatial properties</h2>
-        <p>Hover over the section to play. Hover over the left video to switch.</p>
-        
-        <div class="video-grid-2">
-            <!-- Left Column: Hover Switcher (Video 1 & Video 2) -->
-            <div class="video-wrapper hover-switch-container">
-                <video class="base-vid" loop muted playsinline src="spatial_low_light.mp4"></video>
-                <video class="hover-vid" loop muted playsinline src="spatial_normal_light.mp4"></video>
+    <div class="sections-container">
+        <!-- SECTION 1 (With QA Pair Added) -->
+        <section class="video-section">
+            <h2>VQA based on spatial properties</h2>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="spatial_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="spatial_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="spatial_event_polarity.mp4"></video>
+                </div>
             </div>
 
-            <!-- Right Column: Standard Video (Video 3) -->
-            <div class="video-wrapper">
-                <video class="standard-vid" loop muted playsinline src="spatial_event_polarity.mp4"></video>
+            <!-- NEW: QA PAIR & MODEL RESULTS -->
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong> Where is the chair positioned in relation to the walking subject?</p>
+                <p class="qa-text"><strong>Choices:</strong>   A. Beside him B. Behind him C. Directly in front of him D. Carried on his back</p>
+                <p class="qa-text gt"><strong>GT:</strong> C. Directly in front of him </p>
+                
+                <div class="model-results">
+                    <!-- Model 1 -->
+                    <div class="model-item">
+                        <img src="logo_model1.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> Behind him.
+                    </div>
+                    <!-- Model 2 -->
+                    <div class="model-item">
+                        <img src="logo_model2.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL:</span> Beside him.
+                    </div>
+                    <!-- Model 3 -->
+                    <div class="model-item">
+                        <img src="logo_model3.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus:</span> Behind him.
+                    </div>
+                    <!-- Model 4 (Your Model) -->
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> Directly in front of him.
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SECTION 2 -->
-    <section class="video-section">
-        <h2>VQA based on visibility properties</h2>
-        
-        <div class="video-grid-2">
-            <!-- Left Column: Hover Switcher (Video 4 & Video 5) -->
-            <div class="video-wrapper hover-switch-container">
-                <video class="base-vid" loop muted playsinline src="vis_low_light.mp4"></video>
-                <video class="hover-vid" loop muted playsinline src="vis_normal_light.mp4"></video>
-            </div>
-
-            <!-- Right Column: Standard Video (Video 6) -->
-            <div class="video-wrapper">
-                <video class="standard-vid" loop muted playsinline src="vis_event_polarity.mp4"></video>
-            </div>
-        </div>
-    </section>
-
-        <!-- SECTION 3 -->
-    <section class="video-section">
-        <h2>VQA based on counting</h2>
-        
-        <div class="video-grid-2">
-            <!-- Left Column: Hover Switcher (Video 4 & Video 5) -->
-            <div class="video-wrapper hover-switch-container">
-                <video class="base-vid" loop muted playsinline src="count_low_light.mp4"></video>
-                <video class="hover-vid" loop muted playsinline src="count_normal_light.mp4"></video>
-            </div>
-
-            <!-- Right Column: Standard Video (Video 6) -->
-            <div class="video-wrapper">
-                <video class="standard-vid" loop muted playsinline src="count_event_polarity.mp4"></video>
-            </div>
-        </div>
-    </section>
-
-
-        <!-- SECTION 4 -->
-    <section class="video-section">
-        <h2>VQA for OCR</h2>
-        
-        <div class="video-grid-2">
-            <!-- Left Column: Hover Switcher (Video 4 & Video 5) -->
-            <div class="video-wrapper hover-switch-container">
-                <video class="base-vid" loop muted playsinline src="ocr_low_light.mp4"></video>
-                <video class="hover-vid" loop muted playsinline src="ocr_normal_light.mp4"></video>
+        <section class="video-section">
+            <h2>VQA based on visibility properties</h2>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="vis_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="vis_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="vis_event_polarity.mp4"></video>
+                </div>
             </div>
 
-            <!-- Right Column: Standard Video (Video 6) -->
-            <div class="video-wrapper">
-                <video class="standard-vid" loop muted playsinline src="ocr_event_polarity.mp4"></video>
+            <!-- 1 -->
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong> Are the circular fixtures between the slats turned on or off?</p>
+                <p class="qa-text"><strong>Choices:</strong>   A. They are brightly illuminated B. They are completely dark C. They are flashing rapidly D. Unclear</p>
+                <p class="qa-text gt"><strong>GT:</strong> A. They are brightly illuminated.</p>
+                
+                <div class="model-results">
+                    <!-- Model 1 -->
+                    <div class="model-item">
+                        <img src="logo_model1.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> Unclear.
+                    </div>
+                    <!-- Model 2 -->
+                    <div class="model-item">
+                        <img src="logo_model2.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL:</span> They are completely dark.
+                    </div>
+                    <!-- Model 3 -->
+                    <div class="model-item">
+                        <img src="logo_model3.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus</span> Unclear.
+                    </div>
+                    <!-- Model 4 (Your Model) -->
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> They are brightly illuminated.
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section class="video-section">
+            <h2>VQA based on counting</h2>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="count_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="count_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="count_event_polarity.mp4"></video>
+                </div>
+            </div>
+
+            <!-- NEW: QA PAIR & MODEL RESULTS -->
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong>How many people are walking in the scene? </p>
+                <p class="qa-text"><strong>Choices:</strong> A. One B. Two C. Three D. Four </p>
+                <p class="qa-text gt"><strong>GT:</strong>B. Two</p>
+                
+                <div class="model-results">
+                    <!-- Model 1 -->
+                    <div class="model-item">
+                        <img src="logo_model1.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> One.
+                    </div>
+                    <!-- Model 2 -->
+                    <div class="model-item">
+                        <img src="logo_model2.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL</span> Two.
+                    </div>
+                    <!-- Model 3 -->
+                    <div class="model-item">
+                        <img src="logo_model3.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus:</span> Two.
+                    </div>
+                    <!-- Model 4 (Your Model) -->
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> Two.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="video-section">
+            <h2>VQA based on OCR</h2>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="ocr_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="ocr_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="ocr_event_polarity.mp4"></video>
+                </div>
+            </div>
+
+            <!-- NEW: QA PAIR & MODEL RESULTS -->
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong> What is the person doing in the dark?</p>
+                <p class="qa-text"><strong>Choices:</strong>  A. Spot B. Unitree C. CyberDog D. Boston</p>
+                <p class="qa-text gt"><strong>GT:</strong> B. Unitree </p>
+                
+                <div class="model-results">
+                    <!-- Model 1 -->
+                    <div class="model-item">
+                        <img src="logo_model1.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> CyberDog.
+                    </div>
+                    <!-- Model 2 -->
+                    <div class="model-item">
+                        <img src="logo_model2.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL:</span> Unitree.
+                    </div>
+                    <!-- Model 3 -->
+                    <div class="model-item">
+                        <img src="logo_model3.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus:</span> Unitree.
+                    </div>
+                    <!-- Model 4 (Your Model) -->
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> Unitree.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <script src="app.js"></script>
 </body>

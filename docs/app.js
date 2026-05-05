@@ -1,20 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
     
-    // FEATURE 1: Play videos only when the mouse enters their specific section
+    // FEATURE 1: Play and STRICTLY SYNC videos on hover
     const sections = document.querySelectorAll('.video-section');
     
     sections.forEach(section => {
         const videosInSection = section.querySelectorAll('video');
         
-        // Play all videos in this section when hovered
         section.addEventListener('mouseenter', () => {
             videosInSection.forEach(video => {
-                // The catch prevents console errors if play() is interrupted
+                // Force all videos to start at the exact same frame to prevent drifting
+                video.currentTime = 0; 
                 video.play().catch(error => console.log("Video play interrupted:", error));
             });
         });
 
-        // Pause all videos in this section when the mouse leaves
         section.addEventListener('mouseleave', () => {
             videosInSection.forEach(video => {
                 video.pause();
@@ -29,15 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const baseVid = container.querySelector('.base-vid');
         const hoverVid = container.querySelector('.hover-vid');
 
-        // When mouse enters the video block, sync Video 2 to Video 1's current time
         container.addEventListener('mouseenter', () => {
             hoverVid.currentTime = baseVid.currentTime;
         });
 
-        // When mouse leaves the video block, sync Video 1 back to Video 2's current time
         container.addEventListener('mouseleave', () => {
             baseVid.currentTime = hoverVid.currentTime;
         });
     });
-
 });
