@@ -1,99 +1,86 @@
-/* General Page Styling */
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.6;
     color: #333;
     background-color: #fafafa;
-    max-width: 1000px; /* Keeps the content centered and readable */
+    max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Header & Typography */
-header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-top: 30px;
-}
+header { text-align: center; margin-bottom: 40px; padding-top: 30px; }
+h1 { font-size: 2.2em; margin-bottom: 10px; }
+.authors { font-size: 1.1em; color: #555; }
+.links { margin-top: 20px; display: flex; justify-content: center; gap: 15px; }
+.btn { padding: 8px 20px; background-color: #24292e; color: white; text-decoration: none; border-radius: 20px; }
+.btn:hover { background-color: #555; }
 
-h1 {
-    font-size: 2.2em;
-    margin-bottom: 10px;
-}
-
-.authors, .affiliations {
-    font-size: 1.1em;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-/* Action Buttons */
-.links {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 8px 20px;
-    background-color: #24292e;
-    color: white;
-    text-decoration: none;
-    border-radius: 20px;
-    font-size: 0.9em;
-    transition: background-color 0.2s;
-}
-
-.btn:hover {
-    background-color: #555;
-}
-
-/* Sections */
 section {
     margin-bottom: 60px;
     background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Adds a subtle card effect */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-h2 {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-    margin-top: 0;
-}
+h2 { border-bottom: 1px solid #eee; padding-bottom: 10px; margin-top: 0; }
 
-/* Video Grid (The Side-by-Side Magic) */
-.video-grid {
+/* 2-Column Grid Layout */
+.video-grid-2 {
     display: flex;
     justify-content: space-between;
-    gap: 20px; /* Space between the videos */
+    gap: 30px; /* Space between columns */
     margin-top: 20px;
 }
 
 .video-wrapper {
-    flex: 1; /* Forces all 3 columns to be exactly the same width */
+    flex: 1; /* Makes both columns 50% width */
     text-align: center;
+    position: relative; /* Essential for the absolute positioning inside */
 }
 
-video {
+/* Hover Switch Specifics */
+.hover-switch-container video {
     width: 100%;
     border-radius: 8px;
-    background-color: #eaeaea; /* Shows a grey box while the video loads */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* The base video stays normal to give the container height */
+.base-vid {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
+
+/* The hover video sits directly on top of the base video, invisible by default */
+.hover-vid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none; /* Prevents flickering when mouse moves over it */
+}
+
+/* When the container is hovered, flip the opacities */
+.hover-switch-container:hover .base-vid { opacity: 0; }
+.hover-switch-container:hover .hover-vid { opacity: 1; }
+
+.standard-vid {
+    width: 100%;
+    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .caption {
     margin-top: 10px;
-    font-size: 0.9em;
-    color: #666;
+    font-size: 0.95em;
+    font-weight: bold;
+    color: #444;
 }
 
-/* Mobile Responsiveness: Stacks videos on top of each other on small screens */
+/* Mobile Responsiveness */
 @media (max-width: 768px) {
-    .video-grid {
-        flex-direction: column;
-    }
+    .video-grid-2 { flex-direction: column; }
 }
