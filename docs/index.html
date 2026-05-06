@@ -12,7 +12,7 @@
     <header>
         <h1>Reasoning in the Dark: Event-RGB Adaptation for Low-Light Video MLLMs</h1>
         <div class="authors">
-            <span class="author">Anonymous Author(s)
+            <span class="author">Anonymous Author(s)</span>
         </div>
         <div class="affiliations">
             <span>Anonymous University / Organization</span>
@@ -42,7 +42,7 @@
 
     <!-- SECTION 1 -->
     <div class="sections-container">
-        <!-- SECTION 1 (With QA Pair Added) -->
+        <!-- Spatial Properties -->
         <section class="video-section">
             <h2>VQA based on spatial properties</h2>
             <p class="video-hint">
@@ -59,7 +59,6 @@
                 </div>
             </div>
 
-            <!-- NEW: QA PAIR & MODEL RESULTS -->
             <div class="qa-container">
                 <p class="qa-text"><strong>Q:</strong> Where is the chair positioned in relation to the walking subject?</p>
                 <p class="qa-text"><strong>Choices:</strong>   A. Beside him B. Behind him C. Directly in front of him D. Carried on his back</p>
@@ -90,6 +89,7 @@
             </div>
         </section>
 
+        <!-- Visibility Properties -->
         <section class="video-section">
             <h2>VQA based on visibility properties</h2>
             <p class="video-hint">
@@ -106,29 +106,24 @@
                 </div>
             </div>
 
-            <!-- 1 -->
             <div class="qa-container">
                 <p class="qa-text"><strong>Q:</strong> Are the circular fixtures between the slats turned on or off?</p>
                 <p class="qa-text"><strong>Choices:</strong>   A. They are brightly illuminated B. They are completely dark C. They are flashing rapidly D. Unclear</p>
                 <p class="qa-text gt"><strong>GT:</strong> A. They are brightly illuminated.</p>
                 
                 <div class="model-results">
-                    <!-- Model 1 -->
                     <div class="model-item">
                         <img src="logo_internvl3_darkir.png" alt="Model 1 Logo" class="model-logo">
                         <span class="model-name">InternVL3+DarkIR:</span> Unclear.
                     </div>
-                    <!-- Model 2 -->
                     <div class="model-item">
                         <img src="logo_qwen3_vl.png" alt="Model 2 Logo" class="model-logo">
                         <span class="model-name">Qwen3-VL:</span> They are completely dark.
                     </div>
-                    <!-- Model 3 -->
                     <div class="model-item">
                         <img src="logo_eventgpt_plus.png" alt="Model 3 Logo" class="model-logo">
                         <span class="model-name">EventGPT-Plus</span> Unclear.
                     </div>
-                    <!-- Model 4 (Your Model) -->
                     <div class="model-item highlight-model">
                         <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
                         <span class="model-name">LITE-Event:</span> They are brightly illuminated.
@@ -137,6 +132,7 @@
             </div>
         </section>
 
+        <!-- Counting -->
         <section class="video-section">
             <h2>VQA based on counting</h2>
             <p class="video-hint">
@@ -153,29 +149,24 @@
                 </div>
             </div>
 
-            <!-- NEW: QA PAIR & MODEL RESULTS -->
             <div class="qa-container">
                 <p class="qa-text"><strong>Q:</strong>How many people are walking in the scene? </p>
                 <p class="qa-text"><strong>Choices:</strong> A. One B. Two C. Three D. Four </p>
                 <p class="qa-text gt"><strong>GT:</strong>B. Two</p>
                 
                 <div class="model-results">
-                    <!-- Model 1 -->
                     <div class="model-item">
                         <img src="logo_internvl3_darkir.png" alt="Model 1 Logo" class="model-logo">
                         <span class="model-name">InternVL3+DarkIR:</span> One.
                     </div>
-                    <!-- Model 2 -->
                     <div class="model-item highlight-model">
                         <img src="logo_qwen3_vl.png" alt="Model 2 Logo" class="model-logo">
-                        <span class="model-name">Qwen3-VL</span> Two.
+                        <span class="model-name">Qwen3-VL:</span> Two.
                     </div>
-                    <!-- Model 3 -->
                     <div class="model-item highlight-model">
                         <img src="logo_eventgpt_plus.png" alt="Model 3 Logo" class="model-logo">
                         <span class="model-name">EventGPT-Plus:</span> Two.
                     </div>
-                    <!-- Model 4 (Your Model) -->
                     <div class="model-item highlight-model">
                         <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
                         <span class="model-name">LITE-Event:</span> Two.
@@ -184,6 +175,7 @@
             </div>
         </section>
 
+        <!-- OCR -->
         <section class="video-section">
             <h2>VQA based on OCR</h2>
             <p class="video-hint">
@@ -200,29 +192,24 @@
                 </div>
             </div>
 
-            <!-- NEW: QA PAIR & MODEL RESULTS -->
             <div class="qa-container">
-                <p class="qa-text"><strong>Q:</strong> What is the person doing in the dark?</p>
+                <p class="qa-text"><strong>Q:</strong> What is the written text on the robot?</p>
                 <p class="qa-text"><strong>Choices:</strong>  A. Spot B. Unitree C. CyberDog D. Boston</p>
                 <p class="qa-text gt"><strong>GT:</strong> B. Unitree </p>
                 
                 <div class="model-results">
-                    <!-- Model 1 -->
                     <div class="model-item">
                         <img src="logo_internvl3_darkir.png" alt="Model 1 Logo" class="model-logo">
                         <span class="model-name">InternVL3+DarkIR:</span> CyberDog.
                     </div>
-                    <!-- Model 2 -->
                     <div class="model-item highlight-model">
                         <img src="logo_qwen3_vl.png" alt="Model 2 Logo" class="model-logo">
                         <span class="model-name">Qwen3-VL:</span> Unitree.
                     </div>
-                    <!-- Model 3 -->
                     <div class="model-item highlight-model">
                         <img src="logo_eventgpt_plus.png" alt="Model 3 Logo" class="model-logo">
                         <span class="model-name">EventGPT-Plus:</span> Unitree.
                     </div>
-                    <!-- Model 4 (Your Model) -->
                     <div class="model-item highlight-model">
                         <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
                         <span class="model-name">LITE-Event:</span> Unitree.
@@ -230,7 +217,143 @@
                 </div>
             </div>
         </section>
+
+        <!-- Action Recognition -->
+        <section class="video-section">
+            <h2>VQA based on action recognition</h2>
+            <p class="video-hint">
+                Hover over the section to play video; hover over the left video to switch between dark and normal light.
+            </p>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="action_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="action_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="action_event_polarity.mp4"></video>
+                </div>
+            </div>
+
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong> What is the person riding?</p>
+                <p class="qa-text"><strong>Choices:</strong>    A. A bicycle B. A unicycle C. An electric skateboard D. Roller skates</p>
+                <p class="qa-text gt"><strong>GT:</strong> C. An electric skateboard </p>
+                
+                <div class="model-results">
+                    <div class="model-item">
+                        <img src="logo_internvl3_darkir.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> An electric skateboard (correct)
+                    </div>
+                    <div class="model-item">
+                        <img src="logo_qwen3_vl.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL:</span> A unicycle (wrong)
+                    </div>
+                    <div class="model-item">
+                        <img src="logo_eventgpt_plus.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus:</span> A unicycle (wrong)
+                    </div>
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> An electric skateboard (correct)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Object Interaction -->
+        <section class="video-section">
+            <h2>VQA based on object properties</h2>
+            <p class="video-hint">
+                Hover over the section to play video; hover over the left video to switch between dark and normal light.
+            </p>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="object_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="object_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="object_event_polarity.mp4"></video>
+                </div>
+            </div>
+
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong> What kind of furniture is placed along the desk?</p>
+                <p class="qa-text"><strong>Choices:</strong>    A. Stools B. Office chairs with backrests C. Sofas D. Benches</p>
+                <p class="qa-text gt"><strong>GT:</strong> B. Office chairs with backrests </p>
+                
+                <div class="model-results">
+                    <div class="model-item">
+                        <img src="logo_internvl3_darkir.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> Stools (wrong
+                    </div>
+                    <div class="model-item highlight-model">
+                        <img src="logo_qwen3_vl.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL:</span> Office chairs with backrests (correct)
+                    </div>
+                    <div class="model-item">
+                        <img src="logo_eventgpt_plus.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus:</span> Office chairs with backrests (correct)
+                    </div>
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> Office chairs with backrests (correct)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEW: Temporal Reasoning -->
+        <section class="video-section">
+            <h2>VQA based on temporal properties </h2>
+            <p class="video-hint">
+                Hover over the section to play video; hover over the left video to switch between dark and normal light.
+            </p>
+            
+            <div class="video-grid-2">
+                <div class="video-wrapper hover-switch-container">
+                    <video class="base-vid" loop muted playsinline src="temporal_low_light.mp4"></video>
+                    <video class="hover-vid" loop muted playsinline src="temporal_normal_light.mp4"></video>
+                </div>
+                <div class="video-wrapper">
+                    <video class="standard-vid" loop muted playsinline src="temporal_event_polarity.mp4"></video>
+                </div>
+            </div>
+
+            <!-- QA PAIR & MODEL RESULTS -->
+            <div class="qa-container">
+                <p class="qa-text"><strong>Q:</strong> Which direction is the deer walking?</p>
+                <p class="qa-text"><strong>Choices:</strong>   A. Right to left B. Left to right C. Towards the camera D. Away from the camera</p>
+                <p class="qa-text gt"><strong>GT:</strong> B. Left to right</p>
+                
+                <div class="model-results">
+                    <!-- Model 1 -->
+                    <div class="model-item">
+                        <img src="logo_internvl3_darkir.png" alt="Model 1 Logo" class="model-logo">
+                        <span class="model-name">InternVL3+DarkIR:</span> Away from the camera (wrong)
+                    </div>
+                    <!-- Model 2 -->
+                    <div class="model-item">
+                        <img src="logo_qwen3_vl.png" alt="Model 2 Logo" class="model-logo">
+                        <span class="model-name">Qwen3-VL:</span> Left to right (correct)
+                    </div>
+                    <!-- Model 3 -->
+                    <div class="model-item highlight-model">
+                        <img src="logo_eventgpt_plus.png" alt="Model 3 Logo" class="model-logo">
+                        <span class="model-name">EventGPT-Plus:</span> Towards the camera (wrong)
+                    </div>
+                    <!-- Model 4 (Your Model) -->
+                    <div class="model-item highlight-model">
+                        <img src="logo_lite_event.png" alt="LITE-Event Logo" class="model-logo">
+                        <span class="model-name">LITE-Event:</span> Left to right (correct)
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
+    
     <section class="benchmark-section">
         <h2>Benchmark Results</h2>
         <p>
@@ -250,7 +373,6 @@
             </p>
         </div>
     </section>
-
 
     <script src="app.js"></script>
 </body>
